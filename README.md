@@ -71,6 +71,7 @@ modern-portfolio/
     |-- WorkSlider.jsx
   |- pages/
     |-- about/
+    |-- api/
     |-- contact/
     |-- work/
     |-- _app.jsx
@@ -141,6 +142,7 @@ Useful resources and dependencies that are used in Modern Portfolio.
 - [react-dom](https://www.npmjs.com/package/react-dom): 18.2.0
 - [react-icons](https://www.npmjs.com/package/react-icons): ^4.8.0
 - [react-tsparticles](https://www.npmjs.com/package/react-tsparticles): ^2.9.3
+- [resend](https://www.npmjs.com/package/resend): ^6.9.4
 - [swiper](https://www.npmjs.com/package/swiper): ^12.1.2
 - [tailwind-scrollbar](https://www.npmjs.com/package/tailwind-scrollbar): ^3.0.4
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.3.2
