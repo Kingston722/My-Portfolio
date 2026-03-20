@@ -8,12 +8,12 @@ export default async function handler(req, res) {
   }
 
   try {
-    const fromEmail = process.env.RESEND_FROM_EMAIL;
+    const fromEmail = process.env.RESEND_FROM_EMAIL || process.env.CONTACT_EMAIL;
     const toEmail = process.env.CONTACT_EMAIL;
 
-    if (!process.env.RESEND_API_KEY || !fromEmail || !toEmail) {
+    if (!process.env.RESEND_API_KEY || !toEmail) {
       return res.status(500).json({
-        error: 'Server email configuration is incomplete.',
+        error: 'Server email configuration is incomplete. Required: RESEND_API_KEY and CONTACT_EMAIL.',
       });
     }
 
