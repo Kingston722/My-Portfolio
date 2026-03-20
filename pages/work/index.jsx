@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 
-import Bulb from "../../components/Bulb";
+// import Bulb from "../../components/Bulb";
 import Circles from "../../components/Circles";
 import WorkSlider from "../../components/WorkSlider";
 import { fadeIn } from "../../variants";
 
 const Work = () => {
   return (
-    <div className="h-full bg-primary/30 py-36 flex items-center">
+    <div className="h-full overflow-y-auto bg-primary/30 py-24 xl:py-36">
       <Circles />
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-x-8">
@@ -20,7 +20,7 @@ const Work = () => {
               exit="hidden"
               className="h2 xl:mt-12"
             >
-              My work <span className="text-accent">.</span>
+              My Projects <span className="text-accent">.</span>
             </motion.h2>
             <motion.p
               variants={fadeIn("up", 0.4)}
@@ -29,8 +29,9 @@ const Work = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              tempora eligendi, quisquam tempore sint reiciendis.
+              A curated list of my projects with concise descriptions,
+              architecture highlights, and outcomes. Live links are optional and
+              can be added later.
             </motion.p>
           </div>
 
@@ -46,7 +47,7 @@ const Work = () => {
           </motion.div>
         </div>
       </div>
-      <Bulb />
+      {/* <Bulb /> */}
     </div>
   );
 };

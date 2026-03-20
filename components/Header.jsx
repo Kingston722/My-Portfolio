@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import Socials from "../components/Socials";
@@ -9,15 +8,13 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-y-6 py-8">
           {/* logo */}
-          <Link href="/">
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={220}
-              height={48}
-              priority
-            />
+          <Link
+            href="/"
+            className="text-lg md:text-2xl font-semibold tracking-wide hover:text-accent transition-colors duration-300"
+          >
+            Harshvardhan Poredi 
           </Link>
+          
 
           {/* socials */}
           <Socials />

@@ -3,56 +3,77 @@ import { useState } from "react";
 import CountUp from "react-countup";
 import {
   FaCss3,
-  FaFigma,
   FaHtml5,
   FaJs,
   FaReact,
-  FaWordpress,
+  FaPython,
+  FaJava,
+  FaAndroid,
 } from "react-icons/fa";
 import {
-  SiAdobephotoshop,
-  SiAdobexd,
-  SiFramer,
-  SiNextdotjs,
+  SiCplusplus,
+  SiNodedotjs,
+  SiPostgresql,
+  SiMongodb,
+  SiGit,
+  SiSpringboot,
+  SiMysql,
+  SiFirebase,
+  SiSupabase,
+  SiPostman,
+  SiVisualstudiocode,
 } from "react-icons/si";
 
 import Avatar from "../../components/Avatar";
 import Circles from "../../components/Circles";
 import { fadeIn } from "../../variants";
 
-//  data
+// data
 export const aboutData = [
   {
     title: "skills",
     info: [
       {
-        title: "Web Development",
-        icons: [
-          FaHtml5,
-          FaCss3,
-          FaJs,
-          FaReact,
-          SiNextdotjs,
-          SiFramer,
-          FaWordpress,
-        ],
+        title: "Programming Languages",
+        icons: [SiCplusplus, FaPython, FaJava],
       },
       {
-        title: "UI/UX Design",
-        icons: [FaFigma, SiAdobexd, SiAdobephotoshop],
+        title: "Frontend & Backend",
+        icons: [FaReact, SiNodedotjs, SiSpringboot],
       },
+      {
+        title: "Mobile Development",
+        icons: [FaAndroid, FaJava],
+      },
+      {
+        title: "Databases",
+        icons: [SiPostgresql, SiMysql, SiMongodb, SiFirebase, SiSupabase],
+      },
+      {
+        title: "Developer Tools",
+        icons: [SiGit, SiPostman, SiVisualstudiocode],
+      },
+      
     ],
   },
   {
-    title: "awards",
+    title: "achievements",
     info: [
       {
-        title: "Webby Awards - Honoree",
-        stage: "2011 - 2012",
+        title: "1st Place - Innoveda Conference (Technical Research Presentation)",
+        stage: "2026",
       },
       {
-        title: "Adobe Design Achievement Awards - Finalist",
-        stage: "2009 - 2010",
+        title: "2nd Place - Reverse Hackathon Praxis",
+        stage: "2025",
+      },
+      {
+        title: "1st Place - State-Level Project Competition, Vidyalankar Institute of Technology",
+        stage: "2024",
+      },
+      {
+        title: "Solved 300+ Data Structures and Algorithms problems",
+        stage: "GeeksforGeeks & LeetCode",
       },
     ],
   },
@@ -60,33 +81,31 @@ export const aboutData = [
     title: "experience",
     info: [
       {
-        title: "UX/UI Designer - XYZ Company",
-        stage: "2012 - 2023",
-      },
-      {
-        title: "Web Developer - ABC Agency",
-        stage: "2010 - 2012",
-      },
-      {
-        title: "Intern - DEF Corporation",
-        stage: "2008 - 2010",
+        title: "DRDO - Defence Research and Development Organisation, Pune",
+        stage: "Intern | June 2025 - August 2025",
+        description: [
+          "Built a Python simulation of a 7-DOF dual-arm robotic system using PyBullet",
+          "Implemented motion planning and kinematics for real-time manipulation",
+          "Improved system reliability through structured testing",
+          "Completed 50+ simulation runs with comprehensive technical documentation",
+        ],
       },
     ],
   },
   {
-    title: "credentials",
+    title: "education",
     info: [
       {
-        title: "Web Development - ABC University, LA, CA",
-        stage: "2011",
+        title: "Pimpri Chinchwad College of Engineering, Pune",
+        stage: "B.Tech in Information Technology | Expected May 2027 | CGPA: 9.12",
       },
       {
-        title: "Computer Science Diploma - AV Technical Institute",
-        stage: "2009",
+        title: "Bharati Vidyapeeth Institute of Technology, Navi Mumbai",
+        stage: "Diploma in Computer Engineering | May 2024 | Percentage: 93.83%",
       },
       {
-        title: "Certified Graphic Designer - ABC Institute, Los Angeles, CA",
-        stage: "2006",
+        title: "Fravashi Academy, Nashik",
+        stage: "Secondary School Certificate | May 2021 | Percentage: 92.5%",
       },
     ],
   },
@@ -120,18 +139,18 @@ const About = () => {
             exit="hidden"
             className="h2"
           >
-            Captivating <span className="text-accent">stories</span> birth
-            magnificent designs.
+            Computer Science Student & <span className="text-accent">Developer</span>
           </motion.h2>
           <motion.p
             variants={fadeIn("right", 0.4)}
             initial="hidden"
             animate="show"
-            className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
+            className="max-w-[560px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
           >
-            10 years ago, I begin freelancing as a developer. Since then, I've
-            done remote work for agencies, consulted for startups, and
-            collabrated on digital products for business and consumer use.
+            Software engineering student with strong foundations in Data
+            Structures, Algorithms, and Operating Systems. Experienced in
+            Python and C++ with hands-on simulation, backend systems, and
+            problem-solving work across real-world scenarios.
           </motion.p>
 
           {/* counters */}
@@ -142,43 +161,43 @@ const About = () => {
             className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
           >
             <div className="flex flex-1 xl:gap-x-6">
-              {/* experience */}
+              {/* internship */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={10} duration={5} />
+                  <CountUp start={0} end={1} duration={4} />
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Years of experience.
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[110px]">
+                  Internship experience.
                 </div>
               </div>
 
-              {/* clients */}
+              {/* dsa */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={250} duration={5} />
+                  <CountUp start={0} end={300} duration={4} />+
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Satisfied clients.
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[110px]">
+                  DSA problems solved.
                 </div>
               </div>
 
-              {/* projects */}
+              {/* academic score */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={650} duration={5} />
+                  <CountUp start={0} end={9.12} decimals={2} duration={4} />
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Finished projects.
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[120px]">
+                  Current CGPA.
                 </div>
               </div>
 
-              {/* awards */}
+              {/* achievements */}
               <div className="relative flex-1">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                  <CountUp start={0} end={8} duration={5} />
+                  <CountUp start={0} end={3} duration={4} />
                 </div>
-                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
-                  Winning awards.
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[120px]">
+                  Competition wins.
                 </div>
               </div>
             </div>
@@ -208,25 +227,40 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
+          <div className="py-2 xl:py-6 flex flex-col gap-y-4 xl:gap-y-6 items-start w-full">
             {aboutData[index].info.map((item, itemI) => (
-              <div
-                key={itemI}
-                className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-center text-white/60"
-              >
-                {/* title */}
-                <div className="font-light mb-2 md:mb-0">{item.title}</div>
-                <div className="hidden md:flex">-</div>
-                <div>{item.stage}</div>
-
-                <div className="flex gap-x-4">
-                  {/* icons */}
-                  {item.icons?.map((Icon, iconI) => (
-                    <div key={iconI} className="text-2xl text-white">
-                      <Icon />
-                    </div>
-                  ))}
+              <div key={itemI} className="flex-1 flex flex-col gap-y-3 w-full">
+                {/* title and stage */}
+                <div className="flex flex-col gap-y-1">
+                  <div className="font-light text-white text-sm md:text-base">
+                    {item.title}
+                  </div>
+                  <div className="text-xs md:text-sm text-white/50">
+                    {item.stage}
+                  </div>
                 </div>
+
+                {/* icons for skills */}
+                {item.icons && item.icons.length > 0 && (
+                  <div className="flex gap-x-3">
+                    {item.icons.map((Icon, iconI) => (
+                      <div key={iconI} className="text-2xl text-white/80 hover:text-accent transition-colors">
+                        <Icon />
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* description for experience */}
+                {item.description && (
+                  <ul className="list-disc list-inside text-white/60 text-xs md:text-sm space-y-2">
+                    {item.description.map((desc, descI) => (
+                      <li key={descI} className="ml-2">
+                        {desc}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
