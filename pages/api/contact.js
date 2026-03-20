@@ -8,6 +8,15 @@ export default async function handler(req, res) {
   }
 
   try {
+    const fromEmail = process.env.RESEND_FROM_EMAIL;
+    const toEmail = process.env.CONTACT_EMAIL;
+
+    if (!process.env.RESEND_API_KEY || !fromEmail || !toEmail) {
+      return res.status(500).json({
+        error: 'Server email configuration is incomplete.',
+      });
+    }
+
     const { name, email, subject, message } = req.body;
 
     // Validate inputs
@@ -16,8 +25,8 @@ export default async function handler(req, res) {
     }
 
     await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL,
+      from: fromEmail,
+      to: toEmail,
       replyTo: email,
       subject: `Portfolio Contact: ${subject}`,
       html: `
