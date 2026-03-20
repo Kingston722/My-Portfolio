@@ -2,10 +2,25 @@ import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 
 import { fadeIn } from "../../variants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: "", type: "success" });
+
+  const showToast = (message, type = "success") => {
+    setToast({ show: true, message, type });
+  };
+
+  useEffect(() => {
+    if (!toast.show) return undefined;
+
+    const timer = setTimeout(() => {
+      setToast((prev) => ({ ...prev, show: false }));
+    }, 3200);
+
+    return () => clearTimeout(timer);
+  }, [toast.show]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,15 +39,15 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        alert("Thank you. I will get back to you ASAP.");
+        showToast("Thank you. I will get back to you ASAP.", "success");
         event.target.reset();
       } else {
         const data = await response.json();
-        alert(data.error || "Failed to send message. Please try again.");
+        showToast(data.error || "Failed to send message. Please try again.", "error");
       }
     } catch (error) {
       console.error("Contact form error:", error);
-      alert("Error sending message. Please try again later.");
+      showToast("Error sending message. Please try again later.", "error");
     } finally {
       setIsLoading(false);
     }
@@ -43,6 +58,26 @@ const Contact = () => {
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
         {/* text & form */}
         <div className="flex flex-col w-full max-w-[700px]">
+          <div
+            className={`fixed top-8 right-6 z-[120] transition-all duration-300 ${
+              toast.show
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <div
+              className={`min-w-[260px] max-w-[360px] rounded-xl border px-4 py-3 shadow-lg backdrop-blur-sm ${
+                toast.type === "error"
+                  ? "bg-red-950/90 border-red-400/50 text-red-100"
+                  : "bg-emerald-950/90 border-emerald-400/50 text-emerald-100"
+              }`}
+            >
+              {toast.message}
+            </div>
+          </div>
+
           {/* text */}
           <motion.h2
             variants={fadeIn("up", 0.2)}
