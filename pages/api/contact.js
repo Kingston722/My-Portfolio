@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
       replyTo: email,
@@ -38,6 +38,19 @@ export default async function handler(req, res) {
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     });
+
+    if (error) {
+      console.error('Resend API error:', error);
+      return res.status(500).json({
+        error: error.message || 'Email provider rejected the message.',
+      });
+    }
+
+    if (!data?.id) {
+      return res.status(500).json({
+        error: 'Email was not accepted by provider.',
+      });
+    }
 
     return res.status(200).json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
