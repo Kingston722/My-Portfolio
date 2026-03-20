@@ -47,12 +47,16 @@ Here is the folder structure of this app.
 ```bash
 modern-portfolio/
   |- components/
+    |-- animate-ui/
     |-- Avatar.jsx
     |-- Bulb.jsx
     |-- CardLeft.jsx
     |-- CardRight.jsx
     |-- Circles.jsx
+    |-- GravityStarsBackground.jsx
     |-- Header.jsx
+    |-- InitialLoader.jsx
+    |-- InitialLoader.module.css
     |-- Layout.jsx
     |-- Nav.jsx
     |-- ParticlesContainer.jsx
@@ -60,14 +64,14 @@ modern-portfolio/
     |-- ServiceSlider.jsx
     |-- Socials.jsx
     |-- TestimonialSlider.jsx
+    |-- TextType.jsx
+    |-- TextType.module.css
     |-- TopLeftImg.jsx
     |-- Transition.jsx
     |-- WorkSlider.jsx
   |- pages/
     |-- about/
     |-- contact/
-    |-- services/
-    |-- testimonials/
     |-- work/
     |-- _app.jsx
     |-- index.jsx
@@ -76,6 +80,7 @@ modern-portfolio/
     |-- globals.css
   |- .eslintrc.json
   |- .gitignore
+  |- jsconfig.json
   |- netlify.toml
   |- next.config.js
   |- package-lock.json
@@ -125,7 +130,6 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in Modern Portfolio.
 
 <!--- DEPENDENCIES_START --->
-- [@next/font](https://www.npmjs.com/package/@next/font): ^13.4.4
 - [autoprefixer](https://www.npmjs.com/package/autoprefixer): ^10.4.14
 - [eslint](https://www.npmjs.com/package/eslint): 8.41.0
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 13.4.3
