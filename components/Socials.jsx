@@ -32,7 +32,7 @@ export const socialData = [
 
 const Socials = () => {
   return (
-    <div className="flex items-center gap-x-5 text-lg">
+    <div className="flex items-center gap-x-3 sm:gap-x-4 text-base sm:text-lg shrink-0">
       {socialData.map((social, i) => (
         <Link
           key={i}
@@ -42,7 +42,7 @@ const Socials = () => {
           rel="noreferrer noopener"
           className={`${
             social.name === "GitHub"
-              ? "bg-accent rounded-full p-[5px] hover:text-white"
+              ? "bg-accent rounded-full p-[4px] sm:p-[5px] hover:text-white"
               : "hover:text-accent"
           } transition-all duration-300`}
         >

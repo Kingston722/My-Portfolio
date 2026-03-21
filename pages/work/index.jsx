@@ -7,7 +7,7 @@ import { fadeIn } from "../../variants";
 
 const Work = () => {
   return (
-    <div className="h-full overflow-y-auto bg-primary/30 py-24 xl:py-36">
+    <div className="h-full overflow-y-auto bg-primary/30 pt-28 pb-28 md:py-24 xl:py-36">
       <Circles />
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col xl:flex-row gap-x-8">

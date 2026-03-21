@@ -115,7 +115,7 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 py-24 md:py-32 text-center xl:text-left">
+    <div className="h-full bg-primary/30 pt-28 pb-28 md:pt-32 md:pb-12 xl:py-32 text-center xl:text-left">
       <Circles />
 
       {/* avatar img */}
@@ -227,9 +227,9 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 flex flex-col gap-y-4 xl:gap-y-6 items-start w-full">
+          <div className="py-2 xl:py-6 flex flex-col gap-y-4 xl:gap-y-6 items-center xl:items-start w-full">
             {aboutData[index].info.map((item, itemI) => (
-              <div key={itemI} className="flex-1 flex flex-col gap-y-3 w-full">
+              <div key={itemI} className="flex-1 flex flex-col gap-y-3 w-full text-center xl:text-left items-center xl:items-start">
                 {/* title and stage */}
                 <div className="flex flex-col gap-y-1">
                   <div className="font-light text-white text-sm md:text-base">
@@ -242,7 +242,7 @@ const About = () => {
 
                 {/* icons for skills */}
                 {item.icons && item.icons.length > 0 && (
-                  <div className="flex gap-x-3">
+                  <div className="flex gap-x-3 justify-center xl:justify-start">
                     {item.icons.map((Icon, iconI) => (
                       <div key={iconI} className="text-2xl text-white/80 hover:text-accent transition-colors">
                         <Icon />
@@ -253,9 +253,9 @@ const About = () => {
 
                 {/* description for experience */}
                 {item.description && (
-                  <ul className="list-disc list-inside text-white/60 text-xs md:text-sm space-y-2">
+                  <ul className="list-disc list-inside text-white/60 text-left text-xs md:text-sm space-y-2 max-w-[560px] mx-auto xl:mx-0">
                     {item.description.map((desc, descI) => (
-                      <li key={descI} className="ml-2">
+                      <li key={descI}>
                         {desc}
                       </li>
                     ))}
