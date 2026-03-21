@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import Header from "../components/Header";
 import Nav from "../components/Nav";
+import TargetCursor from "../components/TargetCursor";
 import TopLeftImg from "../components/TopLeftImg";
 
 // setup font
@@ -34,6 +35,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <TopLeftImg />
+      <TargetCursor spinDuration={2} hoverDuration={0.2} hideDefaultCursor parallaxOn />
       <Nav />
       <Header />
 
