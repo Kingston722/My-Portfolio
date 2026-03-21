@@ -105,7 +105,7 @@ const WorkSlider = () => {
 
           return (
         <div
-          className={`rounded-lg border border-white/10 bg-white/5 p-5 flex flex-col transition-all duration-300 ${
+          className={`rounded-lg border border-white/10 bg-white/5 p-4 sm:p-5 flex flex-col transition-all duration-300 ${
             expandedCards[projectI] ? "h-auto" : "h-[460px] sm:h-[520px]"
           }`}
           key={projectI}
@@ -123,9 +123,21 @@ const WorkSlider = () => {
                   <span className="text-accent">Role:</span> {project.role}
                 </p>
               )}
-              <p className="text-xs text-white/70">
-                <span className="text-accent">Stack:</span> {project.stack.join(" • ")}
-              </p>
+              <div>
+                <p className="text-xs text-white/70 mb-1">
+                  <span className="text-accent">Stack:</span>
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.stack.map((tech, stackI) => (
+                    <span
+                      key={stackI}
+                      className="text-[11px] leading-tight px-2 py-1 rounded-full bg-white/10 text-white/80"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
               {project.features?.length > 0 && (
                 <ul className="text-xs text-white/70 space-y-1 list-disc list-inside">
                   {project.features.map((feature, featureI) => (

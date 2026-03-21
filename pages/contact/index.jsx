@@ -55,11 +55,11 @@ const Contact = () => {
 
   return (
     <div className="h-full bg-primary/30">
-      <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
+      <div className="container mx-auto px-4 sm:px-6 py-24 md:py-32 text-center xl:text-left flex items-center justify-center h-full">
         {/* text & form */}
         <div className="flex flex-col w-full max-w-[700px]">
           <div
-            className={`fixed top-8 right-6 z-[120] transition-all duration-300 ${
+            className={`fixed top-6 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-6 z-[120] transition-all duration-300 ${
               toast.show
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
@@ -68,7 +68,7 @@ const Contact = () => {
             aria-atomic="true"
           >
             <div
-              className={`min-w-[260px] max-w-[360px] rounded-xl border px-4 py-3 shadow-lg backdrop-blur-sm ${
+              className={`w-[calc(100vw-2rem)] md:min-w-[260px] md:w-auto max-w-[360px] rounded-xl border px-4 py-3 shadow-lg backdrop-blur-sm ${
                 toast.type === "error"
                   ? "bg-red-950/90 border-red-400/50 text-red-100"
                   : "bg-emerald-950/90 border-emerald-400/50 text-emerald-100"
@@ -102,7 +102,7 @@ const Contact = () => {
             name="contact"
           >
             {/* input group */}
-            <div className="flex gap-x-6 w-full">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
               <input
                 type="text"
                 name="name"
@@ -145,7 +145,7 @@ const Contact = () => {
             />
             <button
               type="submit"
-              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group"
+              className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group mx-auto xl:mx-0"
               disabled={isLoading}
               aria-disabled={isLoading}
             >

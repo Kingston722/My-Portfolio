@@ -12,7 +12,7 @@ const Home = () => {
       {/* text */}
       <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
         <div className="h-full container mx-auto px-4 xl:px-0">
-          <div className="h-full flex flex-col xl:flex-row items-center justify-center xl:justify-between gap-10 xl:gap-16 xl:pt-32">
+          <div className="h-full flex flex-col xl:flex-row items-center justify-center xl:justify-between gap-10 xl:gap-16 pt-24 md:pt-28 xl:pt-32 pb-20 md:pb-0">
             <div className="text-center xl:text-left max-w-2xl">
               {/* title */}
               <motion.h1
