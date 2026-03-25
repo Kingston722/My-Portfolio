@@ -49,3 +49,17 @@
     @apply w-full h-[180px] p-6 rounded-lg resize-none;
   }
 }
+
+/* Keep vertical scrolling enabled on touch devices, including landscape phones. */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    overflow-y: auto;
+  }
+
+  .page {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
