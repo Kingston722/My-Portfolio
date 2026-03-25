@@ -25,8 +25,13 @@ const isTouchDevice = () => {
 function CursorProvider({ children, className, hideDefaultCursor = true }) {
   const [cursorPos, setCursorPos] = React.useState({ x: 0, y: 0 });
   const [isActive, setIsActive] = React.useState(false);
+  const [cursorLabel, setCursorLabel] = React.useState("Designer");
+  const [isOverTarget, setIsOverTarget] = React.useState(false);
   const containerRef = React.useRef(null);
   const cursorRef = React.useRef(null);
+
+  const interactiveSelector =
+    "a, button, .cursor-target, [role='button'], input, textarea, select, summary";
 
   React.useEffect(() => {
     if (isTouchDevice()) return undefined;
@@ -34,10 +39,32 @@ function CursorProvider({ children, className, hideDefaultCursor = true }) {
     const handleMouseMove = (event) => {
       setCursorPos({ x: event.clientX, y: event.clientY });
       setIsActive(true);
+
+      const hovered = document.elementFromPoint(event.clientX, event.clientY);
+      const target = hovered?.closest?.(interactiveSelector);
+
+      if (target) {
+        const explicitLabel =
+          target.getAttribute("data-cursor-label") ||
+          target.getAttribute("aria-label") ||
+          target.getAttribute("title");
+
+        setCursorLabel(explicitLabel || "Designer");
+        setIsOverTarget(true);
+      } else {
+        setCursorLabel("Designer");
+        setIsOverTarget(false);
+      }
     };
 
-    const handleMouseLeave = () => setIsActive(false);
-    const handleBlur = () => setIsActive(false);
+    const handleMouseLeave = () => {
+      setIsActive(false);
+      setIsOverTarget(false);
+    };
+    const handleBlur = () => {
+      setIsActive(false);
+      setIsOverTarget(false);
+    };
 
     window.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
@@ -60,7 +87,9 @@ function CursorProvider({ children, className, hideDefaultCursor = true }) {
   }, [hideDefaultCursor, isActive]);
 
   return (
-    <CursorContext.Provider value={{ cursorPos, isActive, containerRef, cursorRef }}>
+    <CursorContext.Provider
+      value={{ cursorPos, isActive, containerRef, cursorRef, cursorLabel, isOverTarget }}
+    >
       <div ref={containerRef} data-slot="cursor-provider" className={className}>
         {children}
       </div>
@@ -173,19 +202,39 @@ function CursorFollow({
 const TargetCursor = ({ hideDefaultCursor = true, sideOffset = 16, align = "bottom-right" }) => {
   if (isTouchDevice()) return null;
 
+  const PointerShape = () => (
+    <svg width="26" height="34" viewBox="0 0 26 34" fill="none" aria-hidden>
+      <path
+        d="M3 3L23 14.5L14.2 17.2L10.8 30L3 3Z"
+        fill="#3B82F6"
+        stroke="#60A5FA"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
   return (
     <CursorProvider hideDefaultCursor={hideDefaultCursor} className="pointer-events-none fixed inset-0 z-[9998]">
-      <Cursor className="h-7 w-7 rounded-full border border-white/60 bg-white/5 backdrop-blur-[1px]">
-        <span className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
+      <Cursor className="rotate-[-14deg] drop-shadow-[0_8px_12px_rgba(59,130,246,0.35)]">
+        <PointerShape />
       </Cursor>
 
       <CursorFollow
         align={align}
         sideOffset={sideOffset}
-        className="h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_14px_rgba(241,48,36,0.75)]"
-      />
+        transition={{ stiffness: 420, damping: 34, bounce: 0 }}
+        className="rounded-xl bg-[#3B82F6] px-3 py-1.5 text-white text-[14px] font-medium shadow-[0_8px_18px_rgba(37,99,235,0.45)]"
+      >
+        <CursorLabel />
+      </CursorFollow>
     </CursorProvider>
   );
 };
+
+function CursorLabel() {
+  const { cursorLabel, isOverTarget } = useCursor();
+  return <span className={`${isOverTarget ? "opacity-100" : "opacity-90"} transition-opacity duration-150`}>{cursorLabel}</span>;
+}
 
 export default TargetCursor;
