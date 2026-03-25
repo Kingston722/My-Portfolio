@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <TopLeftImg />
-      <TargetCursor spinDuration={2} hoverDuration={0.2} hideDefaultCursor parallaxOn />
+      <TargetCursor hideDefaultCursor align="bottom-right" sideOffset={16} />
       <Nav />
       <Header />
 
