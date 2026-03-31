@@ -35,7 +35,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <div className="h-full bg-primary/30 pt-28 pb-28 md:pt-32 md:pb-12 xl:py-32">
+    <div className="h-full bg-primary/30 pt-28 pb-36 md:pt-32 md:pb-12 xl:py-32">
       <Circles />
       <div className="container mx-auto px-4 sm:px-6">
         <motion.h2
@@ -59,7 +59,10 @@ const Experience = () => {
         </motion.p>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 h-full w-[2px] bg-white/10" aria-hidden />
+          <div
+            className="absolute left-3 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-[2px] bg-white/5"
+            aria-hidden
+          />
 
           <div className="space-y-10">
             {experiences.map((experience, index) => (
@@ -74,11 +77,11 @@ const Experience = () => {
                 }`}
               >
                 <div
-                  className={`absolute left-1.5 md:left-1/2 top-6 h-4 w-4 rounded-full border-2 border-accent bg-primary shadow-[0_0_12px_rgba(91,192,190,0.6)]`}
+                  className={`absolute left-2.5 md:left-1/2 md:-translate-x-1/2 top-6 h-3.5 w-3.5 rounded-full border border-accent/60 bg-accent/80 shadow-[0_0_0_6px_rgba(91,192,190,0.12)]`}
                   aria-hidden
                 />
                 <div
-                  className={`ml-10 md:ml-0 md:w-[46%] rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm ${
+                  className={`ml-8 md:ml-0 md:w-[46%] rounded-2xl border border-white/10 bg-white/4 p-5 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/8 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] ${
                     index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
                   }`}
                 >
