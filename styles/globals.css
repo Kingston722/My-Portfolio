@@ -20,10 +20,10 @@
 
 @layer base {
   body {
-    @apply bg-secondary overflow-x-hidden leading-relaxed;
+    @apply bg-secondary overflow-x-hidden overflow-y-auto leading-relaxed;
   }
   .page {
-    @apply w-full min-h-screen md:h-screen overflow-y-auto md:overflow-hidden;
+    @apply w-full min-h-screen h-auto overflow-y-auto;
   }
   .h1 {
     @apply text-[35px] leading-tight md:text-[60px] md:leading-[1.3] mb-8 font-semibold;
@@ -50,16 +50,9 @@
   }
 }
 
-/* Keep vertical scrolling enabled on touch devices, including landscape phones. */
+/* Keep smooth scrolling on touch devices. */
 @media (hover: none) and (pointer: coarse) {
-  body {
-    overflow-y: auto;
-  }
-
   .page {
-    height: auto;
-    min-height: 100dvh;
-    overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
   }
 }
