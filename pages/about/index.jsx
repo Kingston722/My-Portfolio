@@ -90,6 +90,24 @@ export const aboutData = [
           "Completed 50+ simulation runs with comprehensive technical documentation",
         ],
       },
+      {
+        title: "GDGC PCCOE, Pune",
+        stage: "Android Executive | September 2024 - May 2025",
+        description: [
+          "Contributed Android features using Firebase to improve app performance by ~15%",
+          "Delivered 5+ technical sessions for the team on mobile development workflows",
+          "Collaborated on feature planning and release readiness across squads",
+        ],
+      },
+      {
+        title: "Lotus Educare Academy",
+        stage: "Web Development Intern | June 2023 - July 2023",
+        description: [
+          "Built full-stack features with HTML, CSS, JavaScript, and MySQL",
+          "Integrated backend data flows to support internal dashboards",
+          "Improved UI responsiveness by ~20% through layout and performance fixes",
+        ],
+      },
     ],
   },
   {
