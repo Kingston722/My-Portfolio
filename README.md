@@ -53,6 +53,7 @@ modern-portfolio/
     |-- CardLeft.jsx
     |-- CardRight.jsx
     |-- Circles.jsx
+    |-- CircularText.jsx
     |-- GravityStarsBackground.jsx
     |-- Header.jsx
     |-- InitialLoader.jsx
