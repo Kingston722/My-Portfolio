@@ -76,6 +76,7 @@ modern-portfolio/
     |-- about/
     |-- api/
     |-- contact/
+    |-- experience/
     |-- work/
     |-- _app.jsx
     |-- index.jsx
