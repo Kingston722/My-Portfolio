@@ -242,8 +242,8 @@ class Media {
     }
 
     this.speed = scroll.current - scroll.last;
-    this.program.uniforms.uTime.value += 0.04;
-    this.program.uniforms.uSpeed.value = this.speed;
+    this.program.uniforms.uTime.value += 0.025;
+    this.program.uniforms.uSpeed.value = this.speed * 0.8;
 
     const planeOffset = this.plane.scale.x / 2;
     const viewportOffset = this.viewport.width / 2;
@@ -286,6 +286,7 @@ class App {
     this.container = container;
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
+    this.isVisible = true;
     this.onCheckDebounce = debounce(this.onCheck, 200);
     this.createRenderer();
     this.createCamera();
@@ -300,7 +301,7 @@ class App {
     this.renderer = new Renderer({
       alpha: true,
       antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
+      dpr: Math.min(window.devicePixelRatio || 1, 1.5),
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -316,8 +317,8 @@ class App {
   }
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100,
+      heightSegments: 20,
+      widthSegments: 40,
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -401,6 +402,7 @@ class App {
     }
   }
   update() {
+    if (!this.isVisible) return;
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
     if (this.medias) {
@@ -409,6 +411,16 @@ class App {
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
     this.raf = window.requestAnimationFrame(this.update.bind(this));
+  }
+  setVisibility(isVisible) {
+    this.isVisible = isVisible;
+    if (this.isVisible && !this.raf) {
+      this.update();
+    }
+    if (!this.isVisible && this.raf) {
+      window.cancelAnimationFrame(this.raf);
+      this.raf = null;
+    }
   }
   addEventListeners() {
     this.boundOnResize = this.onResize.bind(this);
@@ -427,7 +439,9 @@ class App {
     window.addEventListener("touchend", this.boundOnTouchUp);
   }
   destroy() {
-    window.cancelAnimationFrame(this.raf);
+    if (this.raf) {
+      window.cancelAnimationFrame(this.raf);
+    }
     window.removeEventListener("resize", this.boundOnResize);
     window.removeEventListener("mousewheel", this.boundOnWheel);
     window.removeEventListener("wheel", this.boundOnWheel);
@@ -455,7 +469,17 @@ export default function CircularGallery({
   const containerRef = useRef(null);
   useEffect(() => {
     const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          app.setVisibility(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(containerRef.current);
     return () => {
+      observer.disconnect();
       app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
