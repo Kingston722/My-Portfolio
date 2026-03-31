@@ -59,7 +59,7 @@ const Home = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="hidden md:flex flex-col items-center justify-center w-[280px] xl:w-[330px] md:-mt-6 xl:-mt-10 xl:-translate-x-10"
+              className="hidden md:flex flex-col items-center justify-center w-[280px] xl:w-[330px] md:-mt-10 xl:-mt-16 md:-translate-x-6 xl:-translate-x-16"
             >
               <div className="relative rounded-[2.25rem] p-[3px] bg-gradient-to-b from-accent/90 via-cyan-400/35 to-cyan-300/70 shadow-[0_0_50px_rgba(91,192,190,0.3)]">
                 <div className="relative w-[280px] h-[380px] xl:w-[330px] xl:h-[450px] rounded-[2rem] overflow-hidden bg-[#111326]/70 backdrop-blur-sm border border-white/15">
