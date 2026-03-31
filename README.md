@@ -53,6 +53,7 @@ modern-portfolio/
     |-- CardLeft.jsx
     |-- CardRight.jsx
     |-- Circles.jsx
+    |-- CircularGallery.jsx
     |-- CircularText.jsx
     |-- GravityStarsBackground.jsx
     |-- Header.jsx
@@ -139,6 +140,7 @@ Useful resources and dependencies that are used in Modern Portfolio.
 - [framer-motion](https://www.npmjs.com/package/framer-motion): ^10.12.16
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.7.0
 - [next](https://www.npmjs.com/package/next): 15.5.10
+- [ogl](https://www.npmjs.com/package/ogl): ^1.0.11
 - [postcss](https://www.npmjs.com/package/postcss): ^8.4.23
 - [react](https://www.npmjs.com/package/react): 18.2.0
 - [react-countup](https://www.npmjs.com/package/react-countup): ^6.4.2
