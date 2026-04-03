@@ -100,7 +100,7 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 pt-28 pb-[calc(11rem+env(safe-area-inset-bottom))] md:pt-32 md:pb-12 xl:py-32 text-left">
+    <div className="h-full bg-primary/30 pt-28 pb-28 md:pt-32 md:pb-12 xl:py-32 text-left">
       <Circles />
 
       {/* avatar img */}
