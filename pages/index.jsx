@@ -12,8 +12,8 @@ const Home = () => {
       {/* text */}
       <div className="w-full min-h-[calc(100dvh-72px)] md:h-full bg-gradient-to-r from-black/20 via-black/40 to-black/20">
         <div className="min-h-[calc(100dvh-72px)] md:h-full container mx-auto px-4 xl:px-0">
-          <div className="min-h-[calc(100dvh-72px)] md:h-full flex flex-col xl:flex-row items-center justify-start md:justify-center xl:justify-between gap-8 xl:gap-16 pt-20 md:pt-28 xl:pt-32 pb-16 md:pb-0">
-            <div className="text-center xl:text-left max-w-2xl">
+          <div className="min-h-[calc(100dvh-72px)] md:h-full flex flex-col xl:flex-row items-start xl:items-center justify-start md:justify-center xl:justify-between gap-8 xl:gap-16 pt-20 md:pt-28 xl:pt-32 pb-16 md:pb-0">
+            <div className="w-full max-w-2xl text-left">
               {/* title */}
               <motion.h1
                 variants={fadeIn("down", 0.2)}
@@ -32,7 +32,7 @@ const Home = () => {
                 initial="hidden"
                 animate="show"
                 exit="hidden"
-                className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
+                className="max-w-sm xl:max-w-xl mb-10 xl:mb-16"
               >
                 I design and build reliable software experiences, blending strong
                 CS fundamentals with practical development to turn ideas into
@@ -40,8 +40,8 @@ const Home = () => {
               </motion.p>
 
               {/* btn */}
-              <div className="flex justify-center xl:hidden relative">
-                <ProjectsBtn />
+              <div className="relative flex justify-start xl:hidden">
+                <ProjectsBtn mobile />
               </div>
               <motion.div
                 variants={fadeIn("down", 0.4)}
@@ -59,10 +59,10 @@ const Home = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="hidden md:flex flex-col items-center justify-center w-[280px] xl:w-[330px] md:-mt-14 xl:-mt-20 md:-translate-x-16 xl:-translate-x-32"
+              className="mt-2 flex self-center xl:self-auto flex-col items-center justify-center w-[220px] sm:w-[250px] md:w-[280px] xl:w-[330px] md:-mt-14 xl:-mt-20 md:-translate-x-16 xl:-translate-x-32"
             >
               <div className="relative rounded-[2.25rem] p-[3px] bg-gradient-to-b from-accent/90 via-cyan-400/35 to-cyan-300/70 shadow-[0_0_50px_rgba(91,192,190,0.3)]">
-                <div className="relative w-[280px] h-[380px] xl:w-[330px] xl:h-[450px] rounded-[2rem] overflow-hidden bg-[#111326]/70 backdrop-blur-sm border border-white/15">
+                <div className="relative w-[220px] h-[300px] sm:w-[250px] sm:h-[340px] md:w-[280px] md:h-[380px] xl:w-[330px] xl:h-[450px] rounded-[2rem] overflow-hidden bg-[#111326]/70 backdrop-blur-sm border border-white/15">
                   <img
                     src="/my-photo.png"
                     alt="Harshvardhan Poredi"
