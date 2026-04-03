@@ -30,9 +30,9 @@ export const socialData = [
   },
 ];
 
-const Socials = () => {
+const Socials = ({ className = "" }) => {
   return (
-    <div className="flex items-center gap-x-3 sm:gap-x-4 text-base sm:text-lg shrink-0">
+    <div className={`flex items-center gap-x-3 sm:gap-x-4 text-base sm:text-lg shrink-0 ${className}`}>
       {socialData.map((social, i) => (
         <Link
           key={i}
