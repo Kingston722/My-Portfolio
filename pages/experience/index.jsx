@@ -35,7 +35,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <div className="h-full bg-transparent pt-28 pb-[calc(7rem+env(safe-area-inset-bottom))] md:pt-32 md:pb-12 xl:py-32">
+    <div className="h-full bg-transparent pt-28 pb-[calc(11rem+env(safe-area-inset-bottom))] md:pt-32 md:pb-12 xl:py-32">
       <Circles />
       <div className="container mx-auto px-4 sm:px-6">
         <motion.h2

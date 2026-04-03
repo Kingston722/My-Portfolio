@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import Header from "../components/Header";
 import Nav from "../components/Nav";
-import Socials from "../components/Socials";
 import TargetCursor from "../components/TargetCursor";
 import TopLeftImg from "../components/TopLeftImg";
 
@@ -39,11 +38,6 @@ const Layout = ({ children }) => {
       <TargetCursor hideDefaultCursor align="bottom-right" sideOffset={16} />
       <Nav />
       <Header />
-      <div className="fixed bottom-0 left-0 z-40 w-full md:hidden">
-        <div className="h-[58px] px-6 bg-white/10 backdrop-blur-sm border-t border-white/10 flex items-center justify-center pb-[env(safe-area-inset-bottom)]">
-          <Socials className="text-xl gap-x-6" />
-        </div>
-      </div>
 
       {/* main content */}
       {children}

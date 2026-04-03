@@ -27,7 +27,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 xl:left-auto xl:w-16 xl:max-w-md xl:h-screen xl:right-[2%] xl:flex xl:flex-col xl:items-center xl:justify-center">
+    <nav className="flex flex-col items-center xl:justify-center gap-y-4 fixed h-max bottom-0 mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen">
       <div className="flex w-full xl:flex-col items-center justify-between xl:justify-center gap-y-10 px-5 sm:px-8 md:px-16 lg:px-24 xl:px-0 h-[72px] sm:h-[80px] xl:h-max py-6 xl:py-8 bg-white/10 backdrop-blur-sm text-2xl sm:text-3xl xl:text-xl xl:rounded-full">
         {navData.map((link, i) => (
           <Link

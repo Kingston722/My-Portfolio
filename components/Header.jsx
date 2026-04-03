@@ -17,7 +17,7 @@ const Header = () => {
           
 
           {/* socials */}
-          <Socials className="hidden md:flex" />
+          <Socials />
         </div>
       </div>
     </header>
