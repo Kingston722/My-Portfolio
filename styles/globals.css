@@ -61,9 +61,3 @@
   }
 }
 
-/* Reserve space for the fixed bottom navbar on mobile/tablet screens. */
-@media (max-width: 1279px) {
-  .page {
-    padding-bottom: calc(96px + env(safe-area-inset-bottom));
-  }
-}

@@ -40,7 +40,9 @@ const Layout = ({ children }) => {
       <Header />
 
       {/* main content */}
-      {children}
+      <div className="min-h-full pb-[calc(112px+env(safe-area-inset-bottom))] xl:pb-0">
+        {children}
+      </div>
     </main>
   );
 };
