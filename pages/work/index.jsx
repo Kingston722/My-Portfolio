@@ -8,7 +8,8 @@ import { fadeIn } from "../../variants";
 const projects = [
   {
     title: "C.F.T.C (Charge For The Charged)",
-    image: "/thumb1.jpg",
+    image: "/cftc-collage.png",
+    cardImageClass: "object-contain bg-[#121533] p-2",
     description:
       "Android-based IoT app that rewards sustainable energy generation during transportation. Features real-time tracking, QR rewards, and an AI helper for guidance and navigation.",
     stack: [
@@ -111,7 +112,7 @@ const Work = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full ${project.cardImageClass || "object-cover"}`}
                   />
                 </div>
                 <div className="mt-4 space-y-3">
