@@ -80,6 +80,14 @@ modern-portfolio/
     |-- work/
     |-- _app.jsx
     |-- index.jsx
+  |- Project images/
+    |-- CFTC collage.png
+    |-- CFTC home.jpeg
+    |-- CFTC IOT.jpeg
+    |-- CFTC Profile.jpeg
+    |-- CFTC qr.jpeg
+    |-- CFTC redeem.jpeg
+    |-- CFTC tabs.jpeg
   |- public/
   |- styles/
     |-- globals.css
